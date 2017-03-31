@@ -4,6 +4,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputType;
@@ -160,31 +161,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void startAnimation(boolean isOpen) {
-        AnimatorSet animators = new AnimatorSet();
-
-//        ObjectAnimator oa1 = ObjectAnimator.ofFloat(mLlContent, "translationY", new float[2]);
-
+        // 为了使logo较下缩放，定义了底边的中心点为缩放原点。
         mFlLogo.setPivotX(mFlLogo.getWidth() / 2);
         mFlLogo.setPivotY(mFlLogo.getHeight());
-        ObjectAnimator oa2 = ObjectAnimator.ofFloat(mFlLogo, "scaleX", new float[2]);
-        ObjectAnimator oa3 = ObjectAnimator.ofFloat(mFlLogo, "scaleY", new float[2]);
-
 
         if (isOpen) {
-//            oa1.setFloatValues(0.0f, -mHeight);
             mLlContent.scrollTo(0, mHeight);
-            oa2.setFloatValues(1.0f, mScale);
-            oa3.setFloatValues(1.0f, mScale);
+            ViewCompat.animate(mFlLogo)
+                    .scaleX(mScale)
+                    .scaleY(mScale)
+                    .setDuration(200)
+                    .start();
         } else {
-//            oa1.setFloatValues(mHeight, 0.0f);
             mLlContent.scrollTo(0, 0);
-            oa2.setFloatValues(mScale, 1.0f);
-            oa3.setFloatValues(mScale, 1.0f);
+            ViewCompat.animate(mFlLogo)
+                    .scaleX(1.0f)
+                    .scaleY(1.0f)
+                    .setDuration(200)
+                    .start();
         }
-
-        animators.playTogether(oa2, oa3);
-        animators.setDuration(200);
-        animators.start();
     }
 
     @Override

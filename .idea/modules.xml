@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/LoginTest.iml" filepath="$PROJECT_DIR$/LoginTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LoginScroll.iml" filepath="$PROJECT_DIR$/LoginScroll.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/loginpage/loginpage.iml" filepath="$PROJECT_DIR$/loginpage/loginpage.iml" />
     </modules>
